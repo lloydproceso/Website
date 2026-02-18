@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chromebook Tester</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- ===== MAIN WRAPPER ===== -->
+  <div id="app">
+
+    <!-- ===== TOP 5-COLUMN GRID ===== -->
+    <div id="top-grid">
+
+      <!-- 1. VIDEO / AUDIO TESTER -->
+      <div class="card" id="video-card">
+        <div class="video-wrapper">
+          <video id="main-video" playsinline preload="auto">
+            <source src="https://www.genspark.ai/api/files/s/sXEYUpX9" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+          <div id="video-unmute-overlay" class="unmute-overlay">
+            <button id="unmute-btn">🔊 Click to Enable Sound</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2. MICROPHONE TESTER -->
+      <div class="card square-card" id="mic-card">
+        <canvas id="mic-canvas"></canvas>
+        <div id="mic-controls">
+          <button id="record-btn" class="action-btn">⏺ Record</button>
+          <button id="play-btn" class="action-btn" disabled>▶ Play</button>
+        </div>
+        <div id="mic-status">Waiting for mic…</div>
+        <audio id="playback-audio"></audio>
+      </div>
+
+      <!-- 3. BATTERY TESTER -->
+      <div class="card square-card" id="battery-card">
+        <div id="battery-wrap">
+          <div id="battery-icon">
+            <div id="battery-body">
+              <div id="battery-fill"></div>
+            </div>
+            <div id="battery-tip"></div>
+          </div>
+          <div id="battery-pct">--%</div>
+          <div id="battery-status">Checking…</div>
+          <div id="battery-time"></div>
+        </div>
+      </div>
+
+      <!-- 4. CAMERA TESTER -->
+      <div class="card square-card" id="camera-card">
+        <video id="camera-feed" autoplay playsinline muted></video>
+        <div id="camera-status">Requesting camera…</div>
+      </div>
+
+      <!-- 5. TOUCHSCREEN TESTER -->
+      <div class="card square-card" id="touch-card">
+        <div id="touch-idle">
+          <p id="touch-title">Touchscreen Test</p>
+          <button id="touch-start-btn" class="action-btn">Start Test</button>
+        </div>
+      </div>
+
+    </div><!-- /top-grid -->
+
+    <!-- ===== KEYBOARD TESTER ===== -->
+    <div id="keyboard-section">
+      <div id="keyboard-info">
+        <span id="key-label">Press any key…</span>
+        <span id="key-code-label"></span>
+        <span id="key-pct-label">0% keys pressed</span>
+      </div>
+      <div id="keyboard-wrap">
+        <!-- keyboard rows injected by JS -->
+      </div>
+    </div>
+
+  </div><!-- /app -->
+
+  <!-- ===== TOUCHSCREEN FULLSCREEN OVERLAY ===== -->
+  <div id="touch-overlay" class="hidden">
+    <div id="touch-grid-container"></div>
+    <button id="touch-exit-btn">✕ Exit</button>
+    <div id="touch-success-popup" class="hidden">
+      <div id="touch-success-message">Success! Your touchscreen test was successful</div>
+      <button id="touch-success-ok-btn">OK</button>
+    </div>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
